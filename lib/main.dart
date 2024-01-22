@@ -1,4 +1,4 @@
-import 'package:chat_app_ui_1_17/register_view.dart';
+import 'package:chat_app_ui_1_17/splash_screen.dart';
 import 'package:flutter/material.dart';
 
 void main() {
@@ -10,6 +10,6 @@ class MainApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const MaterialApp(home: RegisterView());
+    return const MaterialApp(home: SplashScreen());
   }
 }
