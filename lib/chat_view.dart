@@ -105,9 +105,28 @@ class ChatView extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Column(
                     children: [
-                      CircleAvatar(
-                        radius: 30,
-                        child: Image.asset(users[index].image),
+                      Stack(
+                        children: [
+                          CircleAvatar(
+                            radius: 30,
+                            child: ClipOval(
+                              child: Image.asset(
+                                users[index].image,
+                                fit: BoxFit.cover,
+                              ),
+                            ),
+                          ),
+                          const Positioned(
+                            bottom: 0,
+                            right: 0,
+                            child: CircleAvatar(
+                              radius: 9,
+                              backgroundColor: AppColors.moreLightGray,
+                              child: CircleAvatar(
+                                  radius: 7, backgroundColor: Colors.green),
+                            ),
+                          )
+                        ],
                       ),
                       Padding(
                         padding: const EdgeInsets.all(8.0),
@@ -138,10 +157,12 @@ class ChatView extends StatelessWidget {
                 itemBuilder: (BuildContext context, int index) {
                   return Row(
                     children: [
-                      CircleAvatar(
-                        backgroundColor: Colors.white,
-                        radius: 30,
-                        child: Image.asset(users[index].image),
+                      ClipOval(
+                        child: CircleAvatar(
+                          backgroundColor: AppColors.lighterGray,
+                          radius: 30,
+                          child: Image.asset(users[index].image),
+                        ),
                       ),
                       Padding(
                         padding: const EdgeInsets.symmetric(horizontal: 8.0),
